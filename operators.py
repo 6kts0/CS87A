@@ -1,8 +1,6 @@
 
 """
 Python is a dynamically typed, object oriented programming language.
-
-Faba Kouyate | CS-87A
 """
 
 # Define variables

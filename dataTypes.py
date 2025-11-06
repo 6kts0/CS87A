@@ -2,9 +2,11 @@
 Python is a dynamically typed, object oriented programming language.
 The value of a variable is a location in memory and the variable is a pointer.
 The "del" statement can be used to unbind the reference to an object.
+
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 Casting Values
 -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
 Implicit casting does not define the conversion of a value type
 Explicit casting creates a new variable to hold the conversion of a value type
 """
