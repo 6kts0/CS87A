@@ -3,6 +3,7 @@ A set is a mutuable unordered collection of elements
     * Can store different data types.
     * Does not maintain order of elements.
     * Elements can be added or removed.
+    * Only accounts for unique elements
 """
 
 # Define two sets and define variables to hold sums
