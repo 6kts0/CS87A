@@ -8,7 +8,7 @@ return: Used to exit a function and pass a variable
     * Allows a function to produce an output
     * If return is not used "None" will be passed by default
 """
----------------------------------
+
 # Define function 1 
 # Set dictionairy values to return
 def car_1(): 
@@ -18,7 +18,8 @@ def car_1():
     "Type": "Track",
     "MSRP": "$327,100",
     "Horsepower": "875 hp"
-} 
+}
+
 # Define function 2
 # Set dictionairy values to return
 def car_2():
