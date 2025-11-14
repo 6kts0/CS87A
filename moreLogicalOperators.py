@@ -1,13 +1,20 @@
 """
-You can combine multiple logical operators in a single expression. Python evaluates "not" first, then "and", then "or".
+Python evaluates "not" first, then "and", then "or".
 """
 
+# Define variable
+age_input = input("Enter your age\n ")
+vet_stat_input = input("Are you a veteran or currently in service?\n ")
 
-# Define variables
-age = 62
-is_student = False
-is_veteran = True
+age = int(age_input)
+veteran_stat = (vet_stat_input.lower() == "yes" or vet_stat_input.lower() == "y")
 
-# combining and, or, and not
-if (age < 18 or age > 60) and is_student or is_veteran: 
-    print(f"Discount applied, your veteran status is {is_veteran}.") 
+# if statements for age and veteran status
+if (age > 60): 
+    print(f"\nDiscount applied, we luv senior citizens!") 
+elif (veteran_stat == True):
+    print("\nDiscount applied, thank you for your service!")
+elif (age < 18):
+    print("\nDiscount applied, kids tickets are free!")
+else:
+    print("\nYou are not eligible for a discount, sorry!")

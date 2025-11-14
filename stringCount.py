@@ -1,6 +1,6 @@
-from collections import Counter
-
 # SETS DO NOT SUPPORT INDEXING
+
+from collections import Counter
 
 text = "My name is Walter White and I live at 800 Negro Auroro lane"
 vowels = {'a', 'e', 'i', 'o', 'u'} 

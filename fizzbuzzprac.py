@@ -13,11 +13,6 @@ def fizz_buzz():
     integized_input = int(str_user_input)
 
     # Repeat request for smaller integer if input is above 100
-    if integized_input > 100:
-        back_up = input('Cannot exceed 100, enter an integer between 1 and 101: ')
-        backup_integer = int(back_up)
-        return backup_integer
-    
     
     # Setup variables to hold fizz and buzz requirement
     fizz = integized_input % 3 == 0
