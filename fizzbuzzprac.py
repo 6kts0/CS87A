@@ -2,7 +2,7 @@
 **Functionally coded fizzbuzz problem solution**
 ORDER OF OPERATIONS MUST BE OBEYED
 """
-
+import time
 # Function starts
 def fizzbuzz():
     # Added input method to define range
@@ -14,6 +14,7 @@ def fizzbuzz():
     stop_value = int(stp_v)
 
     for i in range(start_value, stop_value):
+        time.sleep(0.4) # <-- Delete this to print range instantly
 
         # Pre-defined fizz and buzz (I ADDED THAT HYPHEN!!)
         fizz = i % 3 == 0
