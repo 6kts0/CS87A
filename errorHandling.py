@@ -1,7 +1,6 @@
 """
 Python is a dynamically typed, object oriented programming language.
-The value in a variable is a location in memory and the variable points to that location.
-Faba Kouyate, Fall 2025
+A variable is a pointer to a location in memory.
 """
 numerator = 100
 denominator = float(input("Enter a positive number: "))
@@ -20,7 +19,6 @@ except ZeroDivisionError:
     result = None
 
 # The program continues instead of crashing
-print("-+" * 30)
-print(f"The program continues.")
+print("-" * 60)
 print(f"The final result is: {result}")
 

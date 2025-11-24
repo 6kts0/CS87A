@@ -10,10 +10,9 @@ COLUMNS = ['Student ID', 'Name', 'Date of Birth', 'Grade']
 
 
 """
-Initialize Pandas Dataframe
+SAFETY FUNCTION
 """
-
-# Load student data from csv or creates a new empty dataframe if the file isnt found
+# Load student data from csv or create new empty dataframe
 def initialize_dataframe():
     if os.path.exists(STUDENT_DATA) and os.path.getsize(STUDENT_DATA) > 0:
         # Load student data file and confirm columns exist
@@ -25,9 +24,8 @@ def initialize_dataframe():
 
 
 """
-Adding Records
+ADDING RECORDS
 """
-
 def add_student_data():
     
     # Loads existing csv or creates a new one and loads it
@@ -38,16 +36,17 @@ def add_student_data():
     print("-+" * 30)
 
     while True:
-        print('-' * 60)
 
         # Input student ID and print once entered
         student_id = input("Enter your student ID (or 'q' to return to menu): ").strip()
 
+        # If user inputs 'q' return to main()
         if student_id.lower() == 'q':    
             return
 
         if student_id in student_ppi['Student ID'].values:
-            print("*ERROR* {student_id} Already exists. Please enter a unique ID.")
+            print(f"*ERROR* {student_id} Already exists. Please enter a unique ID.")
+            print("-" * 60)
             continue
         print(f"Student ID: {student_id}")
         print("-" * 60)
@@ -93,21 +92,21 @@ def add_student_data():
         # Stores dataframe as csv
         student_ppi.to_csv(STUDENT_DATA, index=False)  
         
+        # Print updated csv
+        print("\n             --- Updated Records ---")
         print(pd.read_csv(STUDENT_DATA)) 
         print("-" * 60)
-    
-add_student_data() 
 
 
 """
-Modifying Records
+MODIFYING RECORDS
 """
-
 def modify_student_data():
 
     # Load existing csv containing student data
     student_ppi = initialize_dataframe()
 
+    # If no data is found in student_data.csv user returns to main() function 
     if student_ppi.empty:
         print("No student data available. Add student records first.")
         return
@@ -118,14 +117,12 @@ def modify_student_data():
 
     while True:
 
-        # Quit loop function  
-        quit = input("Type 'q' to exit OR Press Enter to continue: ")
-        if quit.lower() == "q":    
-            return
-        print('-' * 60)
-
         # Retrieve student ID to modify records belonging to said ID
-        modify_id = input("Enter your Student ID to modify records: ").strip()
+        modify_id = input("Enter your Student ID to modify records (or 'q' to return to menu): ").strip()
+        
+        if modify_id.lower() == 'q':
+            return
+        
         print(f"Student ID: {modify_id}")
         print('-' * 60)
 
@@ -191,19 +188,16 @@ def modify_student_data():
         except Exception as e:
             print(f"*ERROR OCCURED* Update failed. Error details: {e}")
             continue
-
-            
-        print("\n       --- Updated Records ---")
+        
+        # Print updated csv
+        print("\n             --- Updated Records ---")
         print(pd.read_csv(STUDENT_DATA))   
         print("-" * 60) 
 
-modify_student_data()
-
 
 """
-Deleting Records
+DELETING RECORDS
 """
-
 def delete_student_data():
 
     # Load existing csv containing student data
@@ -219,14 +213,11 @@ def delete_student_data():
 
     while True:
 
-        # Quit loop function  
-        quit = input("Type 'q' to exit OR Press Enter to continue: ")
-        if quit.lower() == "q":    
-            return
-        print('-' * 60)
-
         # Retrieve student ID to delete associated records
-        delete_id = input("Enter your Student ID to delete records: ").strip()
+        delete_id = input("Enter your Student ID to delete records (or 'q' to return to menu): ").strip()
+        if delete_id.lower() == 'q':
+            return
+        
         print(f"Student ID: {delete_id}")
         print('-' * 60)
         
@@ -250,22 +241,24 @@ def delete_student_data():
         except Exception as e:
             print(f"*ERROR OCCURED* Update failed. Error details: {e}")
             continue
-
-        print("\n       --- Updated Records ---")
+        
+        # Print updated csv
+        print("\n             --- Updated Records ---")
         print(pd.read_csv(STUDENT_DATA))   
         print("-" * 60) 
 
-delete_student_data()
 
-
-
+"""
+MAIN MENU
+"""
 def main():
     while True:
-        print("\n--- Student Records ---")
+        print("\n--- Updated Records ---")
         print("1: Add Student Records")
         print("2: Modify Student Records")
         print("3: Delete Student")
-        print("4: EXIT")
+        print("4: Student Records")
+        print("5: EXIT")
 
         function_call = input(("select an option: ")).strip()
         if function_call == '1':
@@ -273,13 +266,21 @@ def main():
         elif function_call == '2':
             modify_student_data()
         elif function_call == '3':
-            modify_student_data()
+            delete_student_data()
         elif function_call == '4':
+            print("\n--- Updated Records ---")
+            print('-' * 60)
+            print(pd.read_csv(STUDENT_DATA))
+            print('-' * 60)
+            return
+        elif function_call == '5':
             print("Exiting program...")
             time.sleep(1)
             return
         else:
             print("*Invalid selection*")
-            return main()
-            
-main()
+            return
+
+# Standard way to declare main()     
+if __name__ == "__main__":
+    main()
