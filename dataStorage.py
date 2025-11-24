@@ -9,6 +9,10 @@ STUDENT_DATA = 'student_data.csv'
 COLUMNS = ['Student ID', 'Name', 'Date of Birth', 'Grade']
 
 
+"""
+Initialize Pandas Dataframe
+"""
+
 # Load student data from csv or creates a new empty dataframe if the file isnt found
 def initialize_dataframe():
     if os.path.exists(STUDENT_DATA) and os.path.getsize(STUDENT_DATA) > 0:
@@ -23,7 +27,7 @@ def initialize_dataframe():
 """
 Adding Records
 """
-"""
+
 def add_student_data():
     
     # Loads existing csv or creates a new one and loads it
@@ -34,18 +38,17 @@ def add_student_data():
     print("-+" * 30)
 
     while True:
-        # Quit loop function  
-        quit = input("Type 'q' to exit OR Press Enter to continue: ")
-        if quit.lower() == "q":    
-            break
         print('-' * 60)
 
-        # Input student ID print once entered
-        student_id = input("Enter your student ID : ").str.strip()
+        # Input student ID and print once entered
+        student_id = input("Enter your student ID (or 'q' to return to menu): ").strip()
+
+        if student_id.lower() == 'q':    
+            return
+
         if student_id in student_ppi['Student ID'].values:
             print("*ERROR* {student_id} Already exists. Please enter a unique ID.")
             continue
-
         print(f"Student ID: {student_id}")
         print("-" * 60)
 
@@ -94,7 +97,7 @@ def add_student_data():
         print("-" * 60)
     
 add_student_data() 
-"""
+
 
 """
 Modifying Records
@@ -118,7 +121,7 @@ def modify_student_data():
         # Quit loop function  
         quit = input("Type 'q' to exit OR Press Enter to continue: ")
         if quit.lower() == "q":    
-            break
+            return
         print('-' * 60)
 
         # Retrieve student ID to modify records belonging to said ID
@@ -128,24 +131,33 @@ def modify_student_data():
 
         # Verify student exists
         if modify_id not in student_ppi['Student ID'].values:
-            print(f"Student ID {modify_id} does not exist. Please try again.")
+            print(f"Student ID {modify_id} does not exist. Please verify your ID number and try again.")
+            print('-' * 60)
             continue
-        print('-' * 60)
+        
+        # Initialize the modify column to None
         modify_column = None
 
         # Verify column to be modified
         valid_columns = ['Name', 'Date of Birth', 'Grade']
-        print(f"Modifiable Records: {' | '.join(valid_columns)}")
+        print(f"Modifiable Records: {' | '.join(valid_columns)}") # Prints columns in a single line seperated by a vertical bar
+        print('-' * 60)
         modify_column = input("Which record type would you like to edit: ").strip()
-        if modify_column not in STUDENT_DATA:
-            print ("*RECORD NOT FOUND* Please enter a valid record type.")
-            continue
+        print('-' * 60)
+
+        column_to_update = None
 
         # Find column that matches input
         for col in valid_columns:
             if modify_column.lower() == col.lower() or modify_column.lower() == col.lower().replace(' ', ''):
                 column_to_update = col
                 break
+        
+        # Chekc for valid column input
+        if modify_column is None:
+            print ("*RECORD NOT FOUND* Please enter a valid record type.")
+            print('-' * 60)
+            continue
 
         # Input new record value
         new_record = input(f"Enter the new {column_to_update} information: ")
@@ -173,12 +185,11 @@ def modify_student_data():
             student_ppi.loc[student_ppi['Student ID'] == modify_id, column_to_update] = new_record
             print("Modification successful!")
             print('-' * 60)
-            
+
             # Save as updated csv
             student_ppi.to_csv(STUDENT_DATA, index=False)
         except Exception as e:
             print(f"*ERROR OCCURED* Update failed. Error details: {e}")
-
             continue
 
             
@@ -192,19 +203,61 @@ modify_student_data()
 """
 Deleting Records
 """
-"""
+
 def delete_student_data():
 
-    # Load student data or return back
+    # Load existing csv containing student data
     student_ppi = initialize_dataframe()
+
     if student_ppi.empty:
         print("No student data available. Add student records first.")
         return
 
+    print("-+" * 30)
+    print(" | ".join(COLUMNS))
+    print("-+" * 30)
+
+    while True:
+
+        # Quit loop function  
+        quit = input("Type 'q' to exit OR Press Enter to continue: ")
+        if quit.lower() == "q":    
+            return
+        print('-' * 60)
+
+        # Retrieve student ID to delete associated records
+        delete_id = input("Enter your Student ID to delete records: ").strip()
+        print(f"Student ID: {delete_id}")
+        print('-' * 60)
+        
+        # Verify student exists
+        if delete_id not in student_ppi['Student ID'].values:
+            print(f"Student ID {delete_id} does not exist. Please verify your ID number and try again.")
+            print('-' * 60)
+            continue
+        
+        try:
+            # Confirm record deletion
+            verify_deletion = input(f"Type 'yes' to delete the record associated with {delete_id} or press ENTER to exit: ").strip()
+            if verify_deletion.lower() == 'yes':
+                student_ppi = student_ppi[student_ppi['Student ID'] != delete_id]
+                print("*RECORD DELETED*")
+            elif verify_deletion.lower() != 'yes':
+                return
+            
+            # Write to csv 
+            student_ppi.to_csv(STUDENT_DATA, index=False)
+        except Exception as e:
+            print(f"*ERROR OCCURED* Update failed. Error details: {e}")
+            continue
+
+        print("\n       --- Updated Records ---")
+        print(pd.read_csv(STUDENT_DATA))   
+        print("-" * 60) 
 
 delete_student_data()
 
-"""
+
 
 def main():
     while True:
@@ -219,11 +272,14 @@ def main():
             add_student_data()
         elif function_call == '2':
             modify_student_data()
+        elif function_call == '3':
+            modify_student_data()
         elif function_call == '4':
             print("Exiting program...")
             time.sleep(1)
             return
         else:
             print("*Invalid selection*")
+            return main()
             
 main()
