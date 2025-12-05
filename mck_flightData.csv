@@ -1,0 +1,40 @@
+flight_number,airline_name,departure_city,departure_country,arrival_airport,arrival_city,arrival_country,passenger_count,flight_class,ticket_price
+AA5870,American Airlines,New York,USA,Hartsfield-Jackson Atlanta,Atlanta,USA,155,First,1988.65
+SK2088,SAS Scandinavian,Copenhagen,Denmark,Charles de Gaulle,Paris,France,451,Business,1066.04
+SK2247,SAS Scandinavian,Copenhagen,Denmark,San Francisco International,San Francisco,USA,66,Business,1103.91
+BA4184,British Airways,London,UK,Charles de Gaulle,Paris,France,58,First,1769.09
+IB3853,Iberia,Madrid,Spain,Charles de Gaulle,Paris,France,188,Business,77.84
+KL6524,KLM Royal Dutch Airlines,Amsterdam,Netherlands,Cape Town International,Cape Town,South Africa,255,Economy,839.63
+QR4927,Qatar Airways,Doha,Qatar,Bole International,Addis Ababa,Ethiopia,467,Business,257.92
+AI6621,Air India,Delhi,India,Chhatrapati Shivaji International,Mumbai,India,421,Business,205.32
+AM3867,Aeroméxico,Mexico City,Mexico,O'Hare International,Chicago,USA,498,First,1167.24
+WN9586,Southwest Airlines,Los Angeles,USA,San Francisco International,San Francisco,USA,253,Economy,1185.78
+SA9239,South African Airways,Johannesburg,South Africa,Charles de Gaulle,Paris,France,202,First,1202.22
+NZ2102,Air New Zealand,Auckland,New Zealand,Sydney Airport,Sydney,Australia,324,Business,693.63
+KE3916,Korean Air,Seoul,South Korea,Indira Gandhi International,Delhi,India,191,Economy,1647.32
+AM9145,Aeroméxico,Mexico City,Mexico,O'Hare International,Chicago,USA,345,First,563.04
+AZ5379,Alitalia,Rome,Italy,Charles de Gaulle,Paris,France,368,Business,1888.68
+AV9155,Avianca,Bogotá,Colombia,Dallas/Fort Worth International,Dallas,USA,68,Economy,549.48
+WN9725,Southwest Airlines,Los Angeles,USA,San Francisco International,San Francisco,USA,137,Business,328.73
+KE8640,Korean Air,Seoul,South Korea,Jomo Kenyatta International,Nairobi,Kenya,344,Economy,366.43
+AZ8989,Alitalia,Rome,Italy,Adolfo Suárez Madrid–Barajas,Madrid,Spain,277,First,1813.35
+NZ8766,Air New Zealand,Auckland,New Zealand,Sydney Airport,Sydney,Australia,200,Business,299.28
+AF8357,Air France,Paris,France,Frankfurt Airport,Frankfurt,Germany,44,First,315.55
+IB5906,Iberia,Madrid,Spain,Charles de Gaulle,Paris,France,439,Economy,1321.74
+SA2968,South African Airways,Johannesburg,South Africa,Adolfo Suárez Madrid–Barajas,Madrid,Spain,54,First,1458.32
+BA3644,British Airways,London,UK,Beijing Capital International,Beijing,China,444,First,1177.7
+BA8026,British Airways,London,UK,Vancouver International,Vancouver,Canada,440,First,1589.52
+AM1438,Aeroméxico,Mexico City,Mexico,O'Hare International,Chicago,USA,360,Business,1528.97
+LA7812,LATAM Airlines,São Paulo,Brazil,Seattle-Tacoma International,Seattle,USA,345,First,1314.65
+NH5711,All Nippon Airways,Tokyo,Japan,Incheon International,Seoul,South Korea,257,First,708.81
+SQ7993,Singapore Airlines,Singapore,Singapore,Incheon International,Seoul,South Korea,193,Economy,1208.6
+AZ4071,Alitalia,Rome,Italy,Haneda,Tokyo,Japan,143,First,1877.11
+UA7048,United Airlines,Los Angeles,USA,Stockholm Arlanda,Stockholm,Sweden,199,Economy,1181.95
+BA8830,British Airways,London,UK,Copenhagen Airport,Copenhagen,Denmark,341,Economy,269.77
+SK9472,SAS Scandinavian,Copenhagen,Denmark,Charles de Gaulle,Paris,France,203,First,819.45
+NH6679,All Nippon Airways,Tokyo,Japan,Incheon International,Seoul,South Korea,346,Business,689.52
+AV5545,Avianca,Bogotá,Colombia,O'Hare International,Chicago,USA,45,Business,321.24
+NZ6227,Air New Zealand,Auckland,New Zealand,Brisbane Airport,Brisbane,Australia,430,First,1945.83
+QR4551,Qatar Airways,Doha,Qatar,Bole International,Addis Ababa,Ethiopia,443,First,677.0
+NH8525,All Nippon Airways,Tokyo,Japan,Melbourne Airport,Melbourne,Australia,123,First,1037.08
+IB1115,Iberia,Madrid,Spain,Charles de Gaulle,Paris,France,297,First,1887.92
