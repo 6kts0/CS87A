@@ -1,6 +1,5 @@
 """
 SETS DO NOT SUPPORT INDEXING
-Faba Kouyate, Fall 2025
 """
 from collections import Counter
 
