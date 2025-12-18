@@ -120,7 +120,7 @@ def pass_gen_all():
     print(f"Your Password: {password} \n")
     return password
 
-
+# PASSWORD GENERATOR MODE 2 - Batch generator
 def pass_batch(length, complexity, count):
     passwords = []
     char_pool = ""
@@ -156,16 +156,15 @@ def batch_pass_gen():
         print("3 - Lowercase letters only")
         print("4 - Letters and special characters")
         print("5 - All parameters (most secure)")
+        
         usr_pass_param = int(input("\nEnter complexity (1-5): "))
         if usr_pass_param < 1 or usr_pass_param > 5:
             print("Invalid complexity option!")
             return
-        
         pass_count = int(input("Quantity of passwords to generate: "))
         if pass_count == 1:
             print("Must generate at least 1 password...")
             return
-        
         print("=" * 60)
         print(f"\nGenerating {pass_count} password(s)...\n")
         passwords = pass_batch(usr_pass_len, usr_pass_param, pass_count)
@@ -179,6 +178,7 @@ def batch_pass_gen():
         time.sleep(0.5)
         print("Please enter valid numbers.\n")
 
+# ENTRY FUNCTION
 def main():
     print('=' * 60) 
     print("--- Password Generator ---")
@@ -186,7 +186,6 @@ def main():
     print("Generate single password - 1")
     print("Generate multiple passwords (batch) - 2")
     print('=' * 60)
-    
     try:
         mode = int(input("Enter mode (1 or 2): "))
         
@@ -200,7 +199,7 @@ def main():
             print("Only letters and special characters - 4")
             print("Use all available parameters (most complex and secure) - 5")
             print('=' * 60) 
-            
+         
             usr_pass_param = input("Enter password complexity parameter (1-5): ")
             usr_pass_param = int(usr_pass_param)
             if usr_pass_param == 1:
@@ -218,10 +217,8 @@ def main():
                 print('INVALID PARAMETER OPTION...')
                 time.sleep(0.5)
                 main()
-        
         elif mode == 2:
             batch_pass_gen()
-        
         else:
             print('\nINVALID MODE...')
             time.sleep(0.5)
