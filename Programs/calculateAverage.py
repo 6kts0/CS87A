@@ -4,7 +4,6 @@ Calculating the average of three numbers inputted by a user
     - While loops (while True)
     - Loop interupt (break)
     - Datatype conversion (int(foo))
-Faba Kouyate, Fall 2025
 """
 
 def average_calculator():
