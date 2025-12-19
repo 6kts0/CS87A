@@ -1,5 +1,5 @@
 """
-Traversing Binary Trees
+Traversing a Binary Tree
 ------------------------------
 Recursive Pre Order
 NODE > LEFT > RIGHT
