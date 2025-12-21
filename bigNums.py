@@ -1,4 +1,4 @@
-# Highest printable exponential number
+# Highest printable exponential number before infinite
 exp_max = 1e+308
 print(exp_max)
 print(type(exp_max))
