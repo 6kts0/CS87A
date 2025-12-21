@@ -7,11 +7,12 @@ router_check = speedtest.Speedtest()
 download_bps = router_check.download()
 upload_bps = router_check.upload()
 
-# Convert bps to mbps (1 mbps = 1,000,000)
-download_mbps = round(download_bps / 1_000_000, 2)
-upload_mbps = round(upload_bps / 1_000_000, 2)
-
+# Convert bps to mbps (1 mbps = 1,000,000 bps)
+download_mbps = download_bps / 1_000_000
+upload_mbps = upload_bps / 1_000_000
 
 # Print download and upload speed
-print(f"Download Speed (Approx.): {download_mbps} Mbps")
-print(f"Upload Speed: {upload_mbps} Mbps")
+print("--- Speed Test Results ---\n" + "===============================")
+print(f"Download Speed: ~{download_mbps:.2f} Mbps")
+print(f"Upload Speed: ~{upload_mbps:.2f} Mbps")
+print(f"Ping: {router_check.results.ping}")
