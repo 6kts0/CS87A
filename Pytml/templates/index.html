@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend-Backend Connection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='C:\Users\fabak\OneDrive\Desktop\PythonPR\CS87A\Pytml\static\styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Connect Frontend to Python</h1>
+        <input type="text" id="usrInput" placeholder="Type here...">
+        <button onclick="sendData()">Send to Python</button>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        async function sendData() {
+            const input = document.getElementById('usrInput').value;
+            const responseDiv = document.getElementById('response');
+            
+            try {
+                const response = await fetch('/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: input })
+                });
+                
+                const data = await response.json();
+                responseDiv.textContent = data.summary + '\n' + data.response;
+            } catch (error) {
+                responseDiv.textContent = 'Error: ' + error;
+            }
+        }
+    </script>
+</body>
+</html>
