@@ -2,13 +2,11 @@
 Deque
 All operations fail if deque is empty
 """
-
 from collections import deque
 
 # Regular list
 l = [1, 2, 3, 4, 5]
 print(l)
-
 
 # Initialize deque list
 L = deque([1, 2, 3, 4, 5])
@@ -17,6 +15,7 @@ print(L)
 
 # Pop item in deque
 pop_item = L.pop()
+print(L)
 appendR = (5, 6) # Initialize tuple
 L.append(appendR) # Append tuple to right most side of deque
 print(L)
